@@ -1,10 +1,27 @@
 import React from 'react'
+import { BrowserRouter , Route  } from 'react-router-dom'
+import StreamList from './stream/StreamList'
+import StreamDelete from './stream/StreamDelete'
+import StreamCreate from './stream/StreamCreate'
+import StreamShow from './stream/StreamShow'
+import StreamEdit from './stream/StreamEdit'
+import Header from './Header'
 
-class App extends React.Component {
-    render(){
-        return(
-            <div> App</div>
-        )
-    }
+
+const App = () => {
+    return (
+    <div className="ui container">
+        
+        <BrowserRouter>
+            <Header />
+            <Route path="/" exact component={StreamList}/>
+            <Route path="/streams/new" component={StreamCreate} />
+            <Route path="/streams/edit" component={StreamEdit} />
+            <Route path="/streams/delete" component={StreamDelete} />
+            <Route path="/streams/show" component={StreamShow} />
+        
+        </BrowserRouter>
+
+    </div>)
 }
 export default App
